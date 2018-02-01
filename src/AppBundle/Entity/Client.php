@@ -124,5 +124,10 @@ class Client
     {
         return $this->phoneNumber;
     }
+
+    public function __toString()
+    {
+        return $this->getFirstname().' '.$this->getLastname();
+    } 
 }
 
