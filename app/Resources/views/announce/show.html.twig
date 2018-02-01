@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>{{ announce.title }}</h2>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Prix</th>
+                {# <td>{{ course.id }}</td> #}
+            </tr>
+            <tr>
+                <th>Nombre de pièces</th>
+
+                {# <td>{{ course.chauffeur }}</td> #}
+            </tr>
+            <tr>
+                <th>Description</th>
+                {# <td>{{ course.adresseDebut }}</td> #}
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td> photo</td>
+            </tr>
+            <tr>
+                
+        </tbody>
+    </table>
+
+    <ul class='list-unstyled'>
+        <li>
+            <a href="{{ path('announces_list') }}">Retour à la liste</a>
+        </li>
+       
+    </ul>
+{% endblock %}
