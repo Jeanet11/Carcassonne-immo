@@ -57,20 +57,20 @@ class Announce
     private $description;
 
      /**
-     * @ManyToOne(targetEntity="Category")
-     * @JoinColumn(name="cat_oid", referencedColumnName="cat_oid")
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="cat_oid", referencedColumnName="cat_oid")
      */
     private $category;
 
      /**
-     * @ManyToOne(targetEntity="Client")
-     * @JoinColumn(name="cli_oid", referencedColumnName="cli_oid")
+     * @ORM\ManyToOne(targetEntity="Client")
+     * @ORM\JoinColumn(name="cli_oid", referencedColumnName="cli_oid")
      */
     private $client;
 
      /**
-     * @ManyToOne(targetEntity="User")
-     * @JoinColumn(name="usr_oid", referencedColumnName="usr_oid")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="usr_oid", referencedColumnName="usr_oid")
      */
     private $user;
 
@@ -204,5 +204,76 @@ class Announce
     {
         return $this->description;
     }
-}
 
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Announce
+     */
+    public function setCategory(\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \AppBundle\Entity\Client $client
+     *
+     * @return Announce
+     */
+    public function setClient(\AppBundle\Entity\Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \AppBundle\Entity\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Announce
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}
