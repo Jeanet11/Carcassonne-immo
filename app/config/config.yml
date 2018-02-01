@@ -6,11 +6,11 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -76,3 +76,66 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+
+
+easy_admin:
+   site_name: Carca-Immo
+   entities:
+       Utilisateur:
+           class: AppBundle\Entity\User
+           form:
+               fields:
+                   - username
+                   - firstName
+                   - lastName
+                   - email
+                   - password
+                   - phoneNumber
+                   - enabled
+           list:
+               fields:
+                   - username
+                   - firstName
+                   - lastName
+                   - email
+                   - phoneNumber
+                   - enabled
+       Client:
+            class: AppBundle\Entity\Client
+            form: 
+                fields:
+                - firstname
+                - lastname
+                - phoneNumber
+            list: 
+                fields:
+                - firstname
+                - lastname
+                - phoneNumber
+       Categorie:
+            class: AppBundle\Entity\Category
+            form:
+                fields:
+                - name
+            list:
+                fields:
+                - name
+       Annonces:
+            class: AppBundle\Entity\Announce
+            form:
+                fields:
+                - title
+                - numberOfRooms
+                - price
+                - description
+                - picture
+            list:
+                fields:
+                - title
+                - numberOfRooms
+                - price
+                - picture
+
+
+
+
