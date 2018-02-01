@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Announce
  *
- * @ORM\Table(name="announce")
+ * @ORM\Table(name="ann_announce")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AnnounceRepository")
  */
 class Announce
@@ -15,7 +15,7 @@ class Announce
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="ann_oid", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,37 +24,55 @@ class Announce
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="ann_title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="numberOfRooms", type="integer")
+     * @ORM\Column(name="ann_numberOfRooms", type="integer")
      */
     private $numberOfRooms;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="price", type="float")
+     * @ORM\Column(name="ann_price", type="float")
      */
     private $price;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="picture", type="string", length=255)
+     * @ORM\Column(name="ann_picture", type="string", length=255)
      */
     private $picture;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="ann_description", type="text")
      */
     private $description;
+
+     /**
+     * @ManyToOne(targetEntity="Category")
+     * @JoinColumn(name="cat_oid", referencedColumnName="cat_oid")
+     */
+    private $category;
+
+     /**
+     * @ManyToOne(targetEntity="Client")
+     * @JoinColumn(name="cli_oid", referencedColumnName="cli_oid")
+     */
+    private $client;
+
+     /**
+     * @ManyToOne(targetEntity="User")
+     * @JoinColumn(name="usr_oid", referencedColumnName="usr_oid")
+     */
+    private $user;
 
 
     /**
