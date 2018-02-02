@@ -144,6 +144,15 @@ assetic:
 
             output: "fonts/glyphicons-halflings-regular.woff"
 
+# app/config/config.yml 
+vich_uploader: 
+    db_driver: orm 
+    mappings: 
+        photo: 
+            uri_prefix: /announce/photo 
+            upload_destination: '%kernel.root_dir%/../web/announce/photo' 
+            namer: vich_uploader.namer_uniqid
+
 
 
 easy_admin:
@@ -157,9 +166,10 @@ easy_admin:
                    - firstName
                    - lastName
                    - email
-                   - password
+                   - plainPassword
                    - phoneNumber
                    - enabled
+                   - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: {'ROLE_ADMIN': 'ROLE_ADMIN' } } }
            list:
                fields:
                    - username
@@ -191,20 +201,23 @@ easy_admin:
                 - name
        Annonces:
             class: AppBundle\Entity\Announce
-            # form:
-            #     fields:
-            #     - title
-            #     - numberOfRooms
-            #     - price
-            #     - description
-            #     - picture
-            #     - { property: 'category', type: 'choice', type_options: { multiple: true, choices: {'': 'ROLE_ADMIN' } } }
-            # list:
-            #     fields:
-            #     - title
-            #     - numberOfRooms
-            #     - price
-            #     - picture
+            form:
+                fields:
+                - title
+                - numberOfRooms
+                - price
+                - description
+                - { property: 'pictureFile', type: 'vich_image' }
+
+                
+            list:
+                fields:
+                - title
+                - numberOfRooms
+                - price
+                - { property: 'picture', type: 'image', base_path: '/announce/photo' }
+
+
 
 
 

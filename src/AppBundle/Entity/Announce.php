@@ -3,10 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * Announce
- *
+ * @Vich\Uploadable
  * @ORM\Table(name="ann_announce")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AnnounceRepository")
  */
@@ -48,6 +51,22 @@ class Announce
      * @ORM\Column(name="ann_picture", type="string", length=255)
      */
     private $picture;
+
+
+    /**
+ * @Vich\UploadableField(mapping="photo", fileNameProperty="picture")
+ * 
+ * @var File
+ */
+private $pictureFile;
+/**
+ * @ORM\Column(type="datetime", nullable= true)
+ *
+ * @var \DateTime
+*/
+private $updatedAt;
+
+
 
     /**
      * @var string
@@ -276,4 +295,27 @@ class Announce
     {
         return $this->user;
     }
+
+    /**
+ * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $devis
+ *
+ * @return Picture
+*/
+public function setPictureFile(File $picture = null)
+{
+    $this->pictureFile = $picture;
+
+    if ($picture) 
+        $this->updatedAt = new \DateTimeImmutable();
+    
+    return $this;
+}
+/**
+ * @return File|null
+ */
+public function getPictureFile()
+{
+    return $this->pictureFile;
+}
+
 }
