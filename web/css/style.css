@@ -1,0 +1,30 @@
+.announce-list {
+    /* border: solid 2px blueviolet; */
+    background-color: rgb(241, 239, 210);
+     padding-top: 10px; 
+     padding-bottom: 4px; 
+    display: flex;
+    box-shadow: 3px 3px rgb(150, 153, 167), -1em 0 0.4em olive;
+}
+
+.titre-annonces {
+    margin-left: 20px;
+}
+
+.annonce-recherche {
+    margin-left: 30px;
+    
+}
+
+.price {
+    background-color: rgb(26, 250, 26);
+    border-radius: 15px;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+}
+
+.ann {
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
