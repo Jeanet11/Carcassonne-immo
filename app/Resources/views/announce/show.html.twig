@@ -1,36 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>{{ announce.title }}</h2>
+    <div class="panel panel-heading">
+        <h2>{{ announce.title }}</h2>
+    </div>
+    <div class="row ">
+        <div class="col-md-6 panel panel-default">
+            <table class="table">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Prix</th>
-                {# <td>{{ course.id }}</td> #}
-            </tr>
-            <tr>
-                <th>Nombre de pièces</th>
+                <tbody>
+                    <tr>
+                        <th>Prix</th>
+                        <td>{{ announce.price ~ ' €' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nombre de pièces</th>
+                        <td>{{ announce.numberOfRooms }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ announce.description }}</td>
+                    </tr>
 
-                {# <td>{{ course.chauffeur }}</td> #}
-            </tr>
-            <tr>
-                <th>Description</th>
-                {# <td>{{ course.adresseDebut }}</td> #}
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td> photo</td>
-            </tr>
-            <tr>
-                
-        </tbody>
-    </table>
-
+                </tbody>
+            </table>
+        </div>  
+                 {# fin du panel default #}
+        <div class=" col-md-5 col-md-offset-1 ">
+            <p>photo</p>
+        </div>
+    </div>
     <ul class='list-unstyled'>
         <li>
             <a href="{{ path('announces_list') }}">Retour à la liste</a>
         </li>
-       
+
     </ul>
 {% endblock %}
