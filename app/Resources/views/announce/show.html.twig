@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="panel panel-heading">
+    <div class="panel panel-heading ">
         <h2>{{ announce.title }}</h2>
+<ul class='list-unstyled'>
+    <li>
+        <a href="{{ path('announces_list') }}">Retour à la liste</a>
+    </li>
+
+</ul>
     </div>
-    <div class="row ">
-        <div class="col-md-6 panel panel-default">
+<div class="row  panel panel-default panel-show">
+        <div class="col-md-6">
             <table class="table">
 
                 <tbody>
@@ -22,18 +28,17 @@
                         <td>{{ announce.description }}</td>
                     </tr>
 
+                   
                 </tbody>
             </table>
-        </div>  
-                 {# fin du panel default #}
-        <div class=" col-md-5 col-md-offset-1 ">
-            <p>photo</p>
+        </div>
+        {# fin du panel default #}
+        <div class=" col-md-5 col-md-offset-1 picture">
+           
+            <img class='picture' src="{{ vich_uploader_asset(announce, 'pictureFile') }}">
+                
+        
         </div>
     </div>
-    <ul class='list-unstyled'>
-        <li>
-            <a href="{{ path('announces_list') }}">Retour à la liste</a>
-        </li>
-
-    </ul>
+    
 {% endblock %}
