@@ -1,9 +1,82 @@
+h1 {
+    font-family: 'Paytone One', sans-serif;
+    color: rgb(133, 48, 87);
+    font-size: 4.4em;
+    text-shadow: 2px 2px rgb(9, 12, 54);
+}
+
+.header{
+    background-image: url("../images/banniere-cite_opt.jpg");
+    height: 130px;
+    background-repeat: round;
+    
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    h1 {
+        font-size: 3em;
+    }
+    .title-h2 {
+        font-size: 1.8em;
+    }
+}
+
+
+h2 {
+    font-family: 'Philosopher', sans-serif;
+    /* font-family: 'Courgette', cursive; */
+    color: rgb(179, 105, 119);
+}
+
+/* 
+##########################################################
+links
+########################################################## */
+a {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 1.3em;
+}
+
+#link-show a {
+    color: rgb(75, 75, 110);
+}
+
+#link-show a:hover {
+    color: black;
+}
+
+#link-show a:active {
+    color: rgb(134, 14, 118);
+}
+
+/*###########################################################*/
+/* 
+.liste {
+    border: solid 2px red;
+}
+
+.liste2 {
+    border: solid 2px rgb(56, 32, 102);
+}
+
+.liste3 {
+    border: solid 2px rgb(178, 206, 53);
+}
+ 
+.over {
+    border: solid 2px rgb(8, 8, 8);
+    
+} */
+
+
 .announce-list {
     /* border: solid 2px blueviolet; */
     background-color: rgb(241, 239, 210);
      padding-top: 10px; 
      padding-bottom: 4px; 
-    display: flex;
+     padding-right: 50px;
+     padding-left: 35px;
     box-shadow: 3px 3px rgb(150, 153, 167), -1em 0 0.4em olive;
 }
 
@@ -19,23 +92,72 @@
     box-shadow: 3px 3px rgb(150, 153, 167), -1em 0 0.4em olive;
     
 }
+
+/* .announce-list {
+  position: relative;
+} */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(211, 211, 208, 0.918);
+  display: none;
+  
+}
+.panel-default:hover .overlay {
+  display: block;
+}
 .price {
-    background-color: rgb(26, 250, 26);
-    box-shadow: 1px 1px rgb(36, 124, 18), -0.4em 0 0.4em rgb(62, 143, 88);
+    background-color: rgb(38, 247, 31);
+    /* box-shadow: 1px 1px rgb(36, 124, 18), -0.4em 0 0.4em rgb(62, 143, 88); */
+    box-shadow:  -0.4em 0 0.4em rgb(62, 143, 88);
     border-radius: 15px;
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
+    font-weight: bold; 
+    
 }
 
 .ann {
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /* align-items: center; */
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
+
+/*###############################################
+show
+#################################################*/
+.th-show {
+    font-family: 'Courgette', cursive;
+}
+
+#desc {
+    font-family: 'Quicksand', sans-serif;
+    text-align: justify;
+    border: none !important;
+}
 .picture {
     margin-top: 10px;
     margin-bottom: 10px;
-    max-width: 450px;
+    max-width: 100%;
     width: auto;
+    /* border: grey 2px solid; */
 }
+
+.title-h2 {
+    font-size: 2.6em;
+    font-family: 'Philosopher', sans-serif;
+     color: rgb(179, 105, 119);
+     margin-left: 15px;
+     margin-top: 15px;
+     margin-bottom: -8px;
+}
+
+li {
+    
+    padding-bottom: 8px;
+    padding-top: 8px;
+    
+}
+
