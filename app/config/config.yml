@@ -156,7 +156,7 @@ vich_uploader:
 
 
 easy_admin:
-   site_name: Carca-Immo
+   site_name: Carcassonne-Immo
    design:
         menu:
             - { label: 'Voir le site', route: 'announces_list' }
