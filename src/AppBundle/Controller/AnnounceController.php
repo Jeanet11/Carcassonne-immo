@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Announce;
+use AppBundle\Entity\Category;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -10,6 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 
 /**
@@ -25,10 +30,7 @@ class AnnounceController extends Controller
  *
  * @Route("/", name="announces_list")
  */
-    // public function testAction(){
-
-    //     return new Response('test');
-    // }
+   
     public function listAction(Request $request)
     {
 
@@ -37,26 +39,58 @@ class AnnounceController extends Controller
         $announces = $em->getRepository('AppBundle:Announce')->findAll();
         
         $form = $this->createFormBuilder()
-            ->add('search', SearchType::class)
-            // ->add('rechercher', SubmitType::class)
+            ->add('search', SearchType::class, array(
+                'required'=> false,
+            ))
+            ->add('categories', EntityType::class, array(
+                'class' => 'AppBundle:Category',
+                'choice_label' => 'name',
+                'query_builder' => function (EntityRepository $er) {
+                    $query = $er->createQueryBuilder('c')
+                        ->orderBy('c.name', 'ASC');
+                },
+                'placeholder' => 'Toutes les catégories',
+
+                'expanded' => false,
+                'multiple' => false,
+                'required' => false,
+            ))
             ->getForm();
              $form->handleRequest($request);
 
 
         if($form->isSubmitted() && $form->isValid() ) {
             $data = $form->getData();
-            $parameter = $data['search'];
-           $query = $em->createQuery(
-               'select a from AppBundle\Entity\Announce as a
-               where a.title like :p')
-            ->setParameter('p', '%'.$parameter.'%');
+           
+            $parameter1 = $data['search'];
+            $parameter2 = $data['categories'];
+            
+            if(!$parameter2){
+                $query = $em->createQuery(
+                    'select a from AppBundle\Entity\Announce as a
+                    where a.title like :p')
+                    ->setParameter('p', '%'.$parameter1.'%');
+                }
+                else {
+                $id = $parameter2->getId();
+                $query = $em->createQuery(
+                    'select a from AppBundle\Entity\Announce as a
+                    join AppBundle\Entity\Category as c 
+                    with a.category = c.id
+                    where c.id = :id
+                    and a.title like :p')
+                ->setParameter('p', '%'.$parameter1.'%')
+                ->setParameter('id', $id);
+            }
+            
             $announces = $query->getResult();
+            
         }
-       
 
         return $this->render('announce/list.html.twig', array(
             'announces' => $announces,
-            'form' => $form->createView(),
+            'form' => $form->createView()
+            
 
         ));
     }
