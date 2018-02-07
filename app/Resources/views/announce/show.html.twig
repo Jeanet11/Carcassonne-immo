@@ -1,44 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="panel panel-heading ">
-        <h2>{{ announce.title }}</h2>
-<ul class='list-unstyled'>
-    <li>
-        <a href="{{ path('announces_list') }}">Retour à la liste</a>
-    </li>
+    <div class="row panel test">
+        <ul class='list-unstyled list-inline'>
+            <li class="col-lg-9 col-xs-12">
+                <p class="title-h2">{{ announce.title }}</p>
+            </li>
+            <li class="col-lg-3 col-xs-12 text-right">
+                <a href="{{ path('announces_list') }}">Retour à la liste</a>
+            </li>
 
-</ul>
+        </ul>
     </div>
-<div class="row  panel panel-default panel-show">
-        <div class="col-md-6">
-            <table class="table">
+    <div class="row  panel panel-default panel-show">
+        <ul class="col-md-6 col-xs-12 list-unstyled">
 
-                <tbody>
-                    <tr>
-                        <th>Prix</th>
-                        <td>{{ announce.price ~ ' €' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Nombre de pièces</th>
-                        <td>{{ announce.numberOfRooms }}</td>
-                    </tr>
-                    <tr>
-                        <th>Description</th>
-                        <td>{{ announce.description }}</td>
-                    </tr>
+            <li class="prix">
+                <div class="th-show  col-lg-3 col-xs-6">Prix</div>
+                <div class="col-lg-9 col-xs-12">{{ announce.price ~ ' €' }}</div>
+            </li><hr/>
+            <li class="rooms">
+                <div class="th-show col-lg-3 col-xs-12">Nb de pièces</div>
+                <div class="col-lg-9 col-xs-12">{{ announce.numberOfRooms }}</div>
+            </li><hr/>
+            <li>
+                <div class="th-show col-lg-3 col-xs-12 hidden-xs">Description</div>
+                <div id="desc" class="col-lg-9 col-xs-12">{{ announce.description }}</div>
+            </li>
 
-                   
-                </tbody>
-            </table>
-        </div>
-        {# fin du panel default #}
-        <div class=" col-md-5 col-md-offset-1 picture">
            
-            <img class='picture' src="{{ vich_uploader_asset(announce, 'pictureFile') }}">
-                
-        
+        </ul>
+        {# fin du panel default #}
+        <div class=" col-md-6 col-xs-12">
+
+            <img class='picture img-responsive img-thumbnail' src="{{ vich_uploader_asset(announce, 'pictureFile') }}">
+
         </div>
     </div>
-    
+
 {% endblock %}
