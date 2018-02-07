@@ -1,9 +1,5 @@
-h1 {
-    font-family: 'Paytone One', sans-serif;
-    color: rgb(133, 48, 87);
-    font-size: 4.4em;
-    text-shadow: 2px 2px rgb(9, 12, 54);
-}
+
+
 
 .header{
     background-image: url("../images/banniere-cite_opt.jpg");
@@ -12,14 +8,11 @@ h1 {
     
 }
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    h1 {
-        font-size: 3em;
-    }
-    .title-h2 {
-        font-size: 1.8em;
-    }
+h1 {
+    font-family: 'Paytone One', sans-serif;
+    color: rgb(133, 48, 87);
+    font-size: 4.4em;
+    text-shadow: 2px 2px rgb(9, 12, 54);
 }
 
 
@@ -61,24 +54,20 @@ page liste d'annonces
     font-size: 2.8em;
     text-shadow: 2px 2px rgb(135, 141, 218);
     box-shadow: 2px 2px rgb(150, 153, 167), -0.4em 0 0.4em rgb(202, 165, 197);
+    background-color: rgb(252, 235, 238);
 }
 
 .announce-list {
-    /* border: solid 2px blueviolet; */
     background-color: rgb(241, 239, 210);
-     padding-top: 10px; 
-     padding-bottom: 4px; 
-     padding-right: 50px;
-     padding-left: 35px;
+    padding-top: 10px; 
+    padding-bottom: 4px; 
+    padding-right: 50px;
+    padding-left: 35px;
     box-shadow: 3px 3px rgb(150, 153, 167), -1em 0 0.4em olive;
 }
 
-.titre-annonces {
-    margin-left: 20px;
-}
-
 .annonce-recherche {
-    margin-left: 30px;
+    margin-left: 15px;
     
 }
 .panel-show {
@@ -87,23 +76,22 @@ page liste d'annonces
 }
 /* ##############ombre de l'annonce quand on passe la souris###############*/
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(211, 211, 208, 0.918);
-  display: none;
-  
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(252, 235, 238);
+    display: none;
+    
 }
 .panel-default:hover .overlay {
-  display: block;
+    display: block;
 }
 /*##########################################################################*/
 
 .price {
     background-color: rgb(38, 247, 31);
-    /* box-shadow: 1px 1px rgb(36, 124, 18), -0.4em 0 0.4em rgb(62, 143, 88); */
     box-shadow:  -0.4em 0 0.4em rgb(62, 143, 88);
     border-radius: 15px;
     font-weight: bold; 
@@ -111,7 +99,6 @@ page liste d'annonces
 }
 
 .ann {
-    /* align-items: center; */
     padding-top: 8px;
     padding-bottom: 8px;
 }
@@ -120,7 +107,7 @@ page liste d'annonces
 /*###############################################
 page show
 #################################################*/
-.th-show {
+.titles-show {
     font-family: 'Courgette', cursive;
 }
 
@@ -134,22 +121,41 @@ page show
     margin-bottom: 10px;
     max-width: 100%;
     width: auto;
-    /* border: grey 2px solid; */
 }
 
 .title-h2 {
     font-size: 2.6em;
     font-family: 'Philosopher', sans-serif;
-     color: rgb(179, 105, 119);
-     margin-left: 15px;
-     margin-top: 15px;
-     margin-bottom: -8px;
+    color: rgb(179, 105, 119);
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: -8px;
 }
 
 li {
-    
     padding-bottom: 8px;
     padding-top: 8px;
-    
 }
 
+/*###############################################################
+pour les téléphones portables
+############################################################*/
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    .title-h2 {
+        font-size: 1.4em;
+    }
+
+    a {
+        font-size: 1em;
+    }
+}
