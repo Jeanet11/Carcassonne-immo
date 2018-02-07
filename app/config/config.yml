@@ -211,6 +211,7 @@ easy_admin:
             form:
                 fields:
                 - title
+                - category
                 - numberOfRooms
                 - price
                 - description
