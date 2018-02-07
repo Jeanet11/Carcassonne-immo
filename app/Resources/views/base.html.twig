@@ -8,11 +8,15 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('Modern-King.ttf') }}">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Paytone+One">
+            <link href="https://fonts.googleapis.com/css?family=Courgette|Philosopher" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
     <body>
-        {% include 'layout/navbar.html.twig' %}
+        {% include 'layout/header.html.twig' %}
         <div class="container">
             {% block body %}{% endblock %}
         </div>
