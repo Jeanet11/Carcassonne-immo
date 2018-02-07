@@ -59,8 +59,8 @@ page liste d'annonces
 
 .announce-list {
     background-color: rgb(241, 239, 210);
-    padding-top: 10px; 
-    padding-bottom: 4px; 
+    padding-top: 20px; 
+    padding-bottom: 20px; 
     padding-right: 50px;
     padding-left: 35px;
     box-shadow: 3px 3px rgb(150, 153, 167), -1em 0 0.4em olive;
