@@ -157,8 +157,15 @@ vich_uploader:
 
 easy_admin:
    site_name: Carca-Immo
+   design:
+        menu:
+            - { label: 'Voir le site', route: 'announces_list' }
+            - Utilisateur
+            - Client
+            - Categorie
+            - Annonces
    entities:
-       Profil:
+       Utilisateur:
            class: AppBundle\Entity\User
            form:
                fields:
@@ -208,6 +215,8 @@ easy_admin:
                 - price
                 - description
                 - { property: 'pictureFile', type: 'vich_image' }
+                - client
+                - user
 
                 
             list:
