@@ -169,63 +169,64 @@ easy_admin:
            class: AppBundle\Entity\User
            form:
                fields:
-                   - username
-                   - firstName
-                   - lastName
-                   - email
-                   - plainPassword
-                   - phoneNumber
-                   - enabled
-                   - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: {'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                   - {property: 'username', label: 'Pseudo'}
+                   - {property: 'firstName', label: 'Prénom'}
+                   - {property: 'lastName', label: 'Prénom'}
+                   - {property: 'email', label: 'Contact'}
+                   - {property: 'plainPassword', label: 'Mot de passe'}
+                   - {property: 'phoneNumber', label: 'N° de téléphone'}
+                   - {property: 'firstname', label: 'Prénom'}
+                   - {property: 'roles', type: 'choice', type_options: { multiple: true, choices: {'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                   - {property: 'enabled', label: 'Actif'}
            list:
                fields:
-                   - username
-                   - firstName
-                   - lastName
-                   - email
-                   - phoneNumber
-                   - enabled
+                   - {property: 'username', label: 'Pseudo'}
+                   - {property: 'firstName', label: 'Prénom'}
+                   - {property: 'lastName', label: 'Nom'}
+                   - {property: 'email', label: 'Contact'}
+                   - {property: 'phoneNumber', label: 'N° de téléphone'}
+                   - {property: 'enabled', label: 'Actif'}
        Client:
             class: AppBundle\Entity\Client
             form: 
                 fields:
-                - firstname
-                - lastname
-                - phoneNumber
+                - {property: 'firstname', label: 'Prénom'}
+                - {property: 'lastname', label: 'Nom'}
+                - {property: 'phoneNumber', label: 'N° de téléphone'}
             list: 
                 fields:
-                - firstname
-                - lastname
-                - phoneNumber
+                - {property: 'firstname', label: 'Prénom'}
+                - {property: 'lastname', label: 'Nom'}
+                - {property: 'phoneNumber', label: 'N° de téléphone'}
+                
        Categorie:
             class: AppBundle\Entity\Category
             label: Catégories
             form:
                 fields:
-                - name
+                - {property: 'name', label: 'Catégorie'}
             list:
                 fields:
-                - name
+                - {property: 'name', label: 'Catégorie'}
        Annonces:
             class: AppBundle\Entity\Announce
             form:
                 fields:
-                - title
-                - category
-                - numberOfRooms
-                - price
-                - description
-                - { property: 'pictureFile', type: 'vich_image' }
-                - client
-                - user
-
-                
+                - {property: 'title', label: 'Titre'}
+                - {property: 'category', label: 'Catégorie'}
+                - {property: 'numberOfRooms', label: 'Nb de pièces'}
+                - {property: 'price', label: 'Prix'}
+                - {property: 'description', label: 'Description'}
+                - {property: 'category', label: 'Catégorie'}
+                - {property: 'pictureFile', type: 'vich_image' }
+                - {property: 'client', label: 'Client' }
+                - {property: 'user', label: "Utilisateur qui a créé l'annonce" }
             list:
                 fields:
-                - title
-                - numberOfRooms
-                - price
-                - { property: 'picture', type: 'image', base_path: '/announce/photo' }
+                - {property: 'title', label: 'Titre'}
+                - {property: 'numberOfRooms', label: 'Nb de pièces'}
+                - {property: 'price', label: 'Prix'}
+                - {property: 'picture', type: 'image', base_path: '/announce/photo' }
 
 
 
