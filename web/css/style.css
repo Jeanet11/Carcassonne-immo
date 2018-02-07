@@ -29,6 +29,8 @@ h2 {
     color: rgb(179, 105, 119);
 }
 
+
+
 /* 
 ##########################################################
 links
@@ -50,26 +52,9 @@ a {
     color: rgb(134, 14, 118);
 }
 
-/*###########################################################*/
-/* 
-.liste {
-    border: solid 2px red;
-}
-
-.liste2 {
-    border: solid 2px rgb(56, 32, 102);
-}
-
-.liste3 {
-    border: solid 2px rgb(178, 206, 53);
-}
- 
-.over {
-    border: solid 2px rgb(8, 8, 8);
-    
-} */
-
-
+/*###########################################################
+page liste d'annonces
+#############################################################*/
 .announce-list {
     /* border: solid 2px blueviolet; */
     background-color: rgb(241, 239, 210);
@@ -92,10 +77,7 @@ a {
     box-shadow: 3px 3px rgb(150, 153, 167), -1em 0 0.4em olive;
     
 }
-
-/* .announce-list {
-  position: relative;
-} */
+/* ##############ombre de l'annonce quand on passe la souris###############*/
 .overlay {
   position: absolute;
   top: 0;
@@ -109,6 +91,8 @@ a {
 .panel-default:hover .overlay {
   display: block;
 }
+/*##########################################################################*/
+
 .price {
     background-color: rgb(38, 247, 31);
     /* box-shadow: 1px 1px rgb(36, 124, 18), -0.4em 0 0.4em rgb(62, 143, 88); */
@@ -126,7 +110,7 @@ a {
 
 
 /*###############################################
-show
+page show
 #################################################*/
 .th-show {
     font-family: 'Courgette', cursive;
