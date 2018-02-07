@@ -58,7 +58,7 @@ class AnnounceController extends Controller
             ->getForm();
              $form->handleRequest($request);
 
-
+        $parameter1 = "";
         if($form->isSubmitted() && $form->isValid() ) {
             $data = $form->getData();
            
@@ -66,24 +66,27 @@ class AnnounceController extends Controller
             $parameter2 = $data['categories'];
             
             if(!$parameter2){
-                $query = $em->createQuery(
-                    'select a from AppBundle\Entity\Announce as a
-                    where a.title like :p')
-                    ->setParameter('p', '%'.$parameter1.'%');
+                    $announces = $em->getRepository('AppBundle:Announce')->getAnnouncesTitle($parameter1);
+                // $query = $em->createQuery(
+                //     'select a from AppBundle\Entity\Announce as a
+                //     where a.title like :p')
+                //     ->setParameter('p', '%'.$parameter1.'%');
                 }
-                else {
-                $id = $parameter2->getId();
-                $query = $em->createQuery(
-                    'select a from AppBundle\Entity\Announce as a
-                    join AppBundle\Entity\Category as c 
-                    with a.category = c.id
-                    where c.id = :id
-                    and a.title like :p')
-                ->setParameter('p', '%'.$parameter1.'%')
-                ->setParameter('id', $id);
+            else {
+                    $id = $parameter2->getId();
+                    $announces = $em->getRepository('AppBundle:Announce')->getAnnouncesTitleCategory($parameter1, $id);
+            //     $id = $parameter2->getId();
+            //     $query = $em->createQuery(
+            //         'select a from AppBundle\Entity\Announce as a
+            //         join AppBundle\Entity\Category as c 
+            //         with a.category = c.id
+            //         where c.id = :id
+            //         and a.title like :p')
+            //     ->setParameter('p', '%'.$parameter1.'%')
+            //     ->setParameter('id', $id);
             }
             
-            $announces = $query->getResult();
+            // $announces = $query->getResult();
             
         }
 
