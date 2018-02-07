@@ -10,4 +10,29 @@ namespace AppBundle\Repository;
  */
 class AnnounceRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAnnouncesTitle($parameter1): array
+    {
+       return  $this->getEntityManager()
+            ->createQuery("
+            SELECT a 
+            FROM AppBundle:Announce a
+            WHERE a.title LIKE :p")
+            ->setParameter('p', '%'.$parameter1.'%')
+            ->getResult();
+    }
+
+    public function getAnnouncesTitleCategory($parameter1, $id): array
+    {
+        return  $this->getEntityManager()
+            ->createQuery("
+            SELECT a 
+            FROM AppBundle:Announce a
+            JOIN AppBundle:Category as c
+            WITH a.category = c.id
+            WHERE c.id = :id
+            AND a.title LIKE :p")
+            ->setParameter('p', '%'.$parameter1.'%')
+            ->setParameter('id', $id)
+            ->getResult();
+    }
 }
