@@ -55,6 +55,14 @@ a {
 /*###########################################################
 page liste d'annonces
 #############################################################*/
+.accueil {
+    margin-top: 100px;
+    padding: 50px;
+    font-size: 2.8em;
+    text-shadow: 2px 2px rgb(135, 141, 218);
+    box-shadow: 2px 2px rgb(150, 153, 167), -0.4em 0 0.4em rgb(202, 165, 197);
+}
+
 .announce-list {
     /* border: solid 2px blueviolet; */
     background-color: rgb(241, 239, 210);
