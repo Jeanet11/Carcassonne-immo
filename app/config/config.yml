@@ -171,11 +171,10 @@ easy_admin:
                fields:
                    - {property: 'username', label: 'Pseudo'}
                    - {property: 'firstName', label: 'Prénom'}
-                   - {property: 'lastName', label: 'Prénom'}
-                   - {property: 'email', label: 'Contact'}
+                   - {property: 'lastName', label: 'Nom'}
+                   - {property: 'email', label: 'Email'}
                    - {property: 'plainPassword', label: 'Mot de passe'}
                    - {property: 'phoneNumber', label: 'N° de téléphone'}
-                   - {property: 'firstname', label: 'Prénom'}
                    - {property: 'roles', type: 'choice', type_options: { multiple: true, choices: {'ROLE_ADMIN': 'ROLE_ADMIN' } } }
                    - {property: 'enabled', label: 'Actif'}
            list:
