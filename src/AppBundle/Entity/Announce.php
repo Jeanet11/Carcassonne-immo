@@ -297,7 +297,7 @@ private $updatedAt;
     }
 
     /**
- * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $devis
+ * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile
  *
  * @return Picture
 */
